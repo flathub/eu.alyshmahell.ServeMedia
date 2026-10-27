@@ -1,6 +1,6 @@
 id: eu.alyshmahell.ServeMedia
 runtime: org.freedesktop.Platform
-runtime-version: "26.08"
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.golang
@@ -9,7 +9,7 @@ add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
     add-ld-path: .
-    version: "26.08"
+    version: '26.08'
     autodelete: false
 finish-args:
   - --share=network
@@ -28,10 +28,10 @@ modules:
     build-options:
       append-path: /usr/lib/sdk/golang/bin
       env:
-        CGO_ENABLED: "0"
-        GOFLAGS: "-buildvcs=false"
-        GOPROXY: "off"
-        GOSUMDB: "off"
+        CGO_ENABLED: '0'
+        GOFLAGS: -buildvcs=false
+        GOPROXY: off
+        GOSUMDB: off
     build-commands:
       - |
         . /usr/lib/sdk/golang/enable.sh
@@ -46,8 +46,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/AlyShmahell/MatchMedia.git
-        tag: v0.1.0
-        commit: edc2cf76f6309cdcb65f553674f7ed5fdb024ebc
+        tag: v0.2.0
+        commit: ccde006160143f4804527a5432a50a8625e32ad2
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -58,10 +58,10 @@ modules:
     build-options:
       append-path: /usr/lib/sdk/golang/bin
       env:
-        CGO_ENABLED: "0"
-        GOFLAGS: "-buildvcs=false"
-        GOPROXY: "off"
-        GOSUMDB: "off"
+        CGO_ENABLED: '0'
+        GOFLAGS: -buildvcs=false
+        GOPROXY: off
+        GOSUMDB: off
     build-commands:
       - |
         . /usr/lib/sdk/golang/enable.sh
@@ -69,7 +69,8 @@ modules:
       - install -Dm755 src/servemedia /app/servemedia
       - cp -a src/share/config /app/config
       - install -d /app/public /app/lib/ffmpeg /app/vendor/video.js /app/vendor/codemirror
-      - install -m644 src/web/static/app.css src/web/static/app.js src/web/static/controls.js src/web/static/logo.svg src/web/static/placeholder.svg /app/public/
+      - install -m644 src/web/static/app.css src/web/static/app.js src/web/static/controls.js
+        src/web/static/logo.svg src/web/static/placeholder.svg /app/public/
       - install -Dm644 LICENSE /app/LICENSE
       - install -Dm644 LICENSE /app/share/licenses/eu.alyshmahell.ServeMedia/LICENSE
       - install -Dm644 src/share/applications/servemedia.desktop /app/share/applications/eu.alyshmahell.ServeMedia.desktop
@@ -79,25 +80,29 @@ modules:
       - install -Dm755 flatpak/servemedia-wrapper /app/bin/servemedia
       - install -Dm644 htmx.min.js /app/vendor/htmx.min.js
       - install -Dm644 htmx.min.js.LICENSE /app/vendor/htmx.min.js.LICENSE
-      - printf '%s\n' 'https://raw.githubusercontent.com/bigskysoftware/htmx/v2.0.4/LICENSE' >/app/vendor/htmx.min.js.NOTICE
+      - printf '%s\n' 'https://raw.githubusercontent.com/bigskysoftware/htmx/v2.0.4/LICENSE'
+        >/app/vendor/htmx.min.js.NOTICE
       - install -Dm644 video.min.js /app/vendor/video.js/video.min.js
       - install -Dm644 video-js.min.css /app/vendor/video.js/video-js.min.css
       - install -Dm644 videojs.LICENSE /app/vendor/video.js/LICENSE
-      - printf '%s\n' 'https://raw.githubusercontent.com/videojs/video.js/v8.21.1/LICENSE' >/app/vendor/video.js/LICENSE.NOTICE
+      - printf '%s\n' 'https://raw.githubusercontent.com/videojs/video.js/v8.21.1/LICENSE'
+        >/app/vendor/video.js/LICENSE.NOTICE
       - install -Dm644 hls.min.js /app/vendor/hls.min.js
       - install -Dm644 hls.min.js.LICENSE /app/vendor/hls.min.js.LICENSE
-      - printf '%s\n' 'https://raw.githubusercontent.com/video-dev/hls.js/v1.5.20/LICENSE' >/app/vendor/hls.min.js.NOTICE
+      - printf '%s\n' 'https://raw.githubusercontent.com/video-dev/hls.js/v1.5.20/LICENSE'
+        >/app/vendor/hls.min.js.NOTICE
       - install -Dm644 codemirror.min.js /app/vendor/codemirror/codemirror.min.js
       - install -Dm644 codemirror.min.css /app/vendor/codemirror/codemirror.min.css
       - install -Dm644 yaml.min.js /app/vendor/codemirror/yaml.min.js
       - install -Dm644 codemirror.LICENSE /app/vendor/codemirror/LICENSE
-      - printf '%s\n' 'https://raw.githubusercontent.com/codemirror/codemirror5/5.65.18/LICENSE' >/app/vendor/codemirror/LICENSE.NOTICE
+      - printf '%s\n' 'https://raw.githubusercontent.com/codemirror/codemirror5/5.65.18/LICENSE'
+        >/app/vendor/codemirror/LICENSE.NOTICE
       - chmod a+x /app/servemedia /app/bin/servemedia /app/tools/matchmedia/matchmedia
     sources:
       - type: git
         url: https://github.com/AlyShmahell/ServeMedia.git
-        tag: v0.1.0
-        commit: db2f542ebb36bb28989faf9bae94dbe0c0685ae1
+        tag: v0.2.0
+        commit: 6971793b86f727d6ba8040df6c97065d89f80977
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
